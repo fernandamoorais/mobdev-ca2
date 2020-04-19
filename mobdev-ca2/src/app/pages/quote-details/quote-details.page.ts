@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-quote-details',
   templateUrl: './quote-details.page.html',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuoteDetailsPage implements OnInit {
 
-  constructor() { }
+constructor(private navController: NavController, private router: Router) { }
 
   ngOnInit() {
   }
