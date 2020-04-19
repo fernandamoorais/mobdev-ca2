@@ -7,19 +7,24 @@ import { HttpClient } from '@angular/common/http';
 
 
 @Component({
-  selector: 'app-episodes',
-  templateUrl: './episodes.page.html',
-  styleUrls: ['./episodes.page.scss'],
+    selector: 'app-episodes',
+    templateUrl: './episodes.page.html',
+    styleUrls: ['./episodes.page.scss'],
 })
 
 export class EpisodesPage implements OnInit {
 
-  episodes: Observable<any>;
+    episodes: Observable<any>;
+    episodeId = null;
+    constructor(private router: Router, private api: ApiService) { }
 
-  constructor(private router: Router, private api: ApiService) { }
+    ngOnInit() {
+        this.episodes = this.api.getEpisodes();
+    }
+    openDetails(episode) {
 
-  ngOnInit() {
-      this.episodes = this.api.getEpisodes();
-  }
-   
+        let episodeId = episode.episode_id;
+        this.router.navigateByUrl(`/tabs/episodes/${episodeId}`);
+        console.log(episodeId);
+    }
 }

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { ApiService } from './../../services/api.service';
+import { ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-character-details',
   templateUrl: './character-details.page.html',
@@ -8,18 +11,16 @@ import { Router } from '@angular/router';
 })
 export class CharacterDetailsPage implements OnInit {
 
+  character: any;
+  characterId = null;
 constructor(private navController: NavController, private router: Router) { }
 
 
 
   ngOnInit() {
-      this.characters = this.api.getCharacters();
-  }
+ this.characterId = this.activatedRoute.snapshot.paramMap.get('id');  }
 
- openDetails(characters) {
-    let characterId = characters.char_id;
-    this.router.navigateByUrl(`/tabs/character/${characterId}`);
-  }
+//falta logica
 
 }
 }
