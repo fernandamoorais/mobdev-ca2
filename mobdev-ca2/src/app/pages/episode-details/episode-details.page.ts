@@ -13,7 +13,7 @@ export class EpisodeDetailsPage implements OnInit {
     episode: any;
     episodeId = null;
 
- constructor(private activatedRoute: ActivatedRoute,private api: ApiService) { }
+ constructor(private activatedRoute: ActivatedRoute, private api: ApiService,) { }
 
   ngOnInit() {
       this.episodeId = this.activatedRoute.snapshot.paramMap.get('id');
@@ -21,9 +21,9 @@ export class EpisodeDetailsPage implements OnInit {
       this.episode = res[0];
     });
   }
-  openDetails(episode) {
-    let episodeId = episode.episode_id;
-    this.router.navigateByUrl(`/tabs/episodes/${episodeId}`);
-  }
+ // openDetails(episode) {
+   // let episodeId = episode.episode_id;
+   // this.router.navigateByUrl(`/tabs/episodes/${episodeId}`);
+ // }
 
 }

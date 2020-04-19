@@ -10,9 +10,9 @@ import { ApiService } from '../../services/api.service';
     styleUrls: ['./quotes.page.scss'],
 })
 export class QuotesPage implements OnInit {
-    
+
     quotes: Observable<any>;
-    constructor(private navController: NavController, private router: Router) { }
+    constructor(private router: Router, private api: ApiService) { }
 
     ngOnInit() {
         this.quotes = this.api.getQuotes();

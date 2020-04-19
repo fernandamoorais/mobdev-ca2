@@ -11,7 +11,7 @@ import { ApiService } from './../../services/api.service';
 export class DeathsPage implements OnInit {
     death: any;
 
-    constructor(private navController: NavController, private router: Router) { }
+    constructor(private router: Router, private api: ApiService) { }
 
     ngOnInit() {
         this.death = this.api.getDeaths();
