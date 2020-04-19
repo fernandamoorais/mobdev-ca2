@@ -26,7 +26,7 @@ export class ApiService {
   getQuotes() {
     return this.http.get(`https://breakingbadapi.com/api/quotes`);
   }
-   getDeath() {
+   getDeaths() {
     return this.http.get(`https://breakingbadapi.com/api/death`);
   }
 }
