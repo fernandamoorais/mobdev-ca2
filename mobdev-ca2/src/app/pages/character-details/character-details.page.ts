@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { ApiService } from './../../services/api.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-character-details',
@@ -7,9 +11,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CharacterDetailsPage implements OnInit {
 
-  constructor() { }
+  character: any;
+  characterId = null;
+constructor(private navController: NavController, private router: Router) { }
+
+
 
   ngOnInit() {
-  }
+ this.characterId = this.activatedRoute.snapshot.paramMap.get('id');  }
 
+//falta logica
+
+}
 }
