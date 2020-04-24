@@ -6,5 +6,11 @@
 		<ion-title>Details of Quotes</ion-title>
 	</ion-toolbar>
 </ion-header>
-<ion-content class="ion-padding">
+<ion-content padding>
+
+	<ion-card *ngIf="quote">
+		<ion-card-content>
+			{{ quote.quote }}
+		</ion-card-content>
+	</ion-card>
 </ion-content>
