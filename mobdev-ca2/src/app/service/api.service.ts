@@ -2,26 +2,38 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class ApiService {
 
-  constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) { }
 
-  getEpisodes() {
-    return this.http.get('https://breakingbadapi.com/api/episodes');
-  }
- 
-  getEpisode(id) {
-    return this.http.get(`https://breakingbadapi.com/api/episodes/${id}`);
-  }
+    getEpisodes() {
+        return this.http.get('https://breakingbadapi.com/api/episodes');
+    }
 
-  getCharacters() {
-    return this.http.get('https://breakingbadapi.com//api/characters');
-  }
+    getEpisode(id) {
+        return this.http.get('https://breakingbadapi.com/api/episodes/${id}');
+    }
 
-  getCharacter(id) {
-    return this.http.get(`https://breakingbadapi.com/api/characters/${id}`);
-  }
+    getCharacters() {
+        return this.http.get('https://breakingbadapi.com/api/characters');
+    }
+
+    getCharacter(id) {
+        return this.http.get('https://breakingbadapi.com/api/characters/${id}');
+    }
+    getQuote(id) {
+        return this.http.get('https://www.breakingbadapi.com/api/quotes/${id}')
+    }
+    getQuotes() {
+
+        return this.http.get('https://www.breakingbadapi.com/api/quotes')
+    }
+
+    getDeaths() {
+        return this.http.get('https://www.breakingbadapi.com/api/deaths')
+    }
+
 
 }
