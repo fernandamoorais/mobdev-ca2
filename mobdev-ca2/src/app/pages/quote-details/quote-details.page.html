@@ -9,8 +9,15 @@
 <ion-content padding>
 
 	<ion-card *ngIf="quote">
-		<ion-card-content>
-			{{ quote.quote }}
+		<h1> {{ quote.quote }} </h1>
 		</ion-card-content>
+		<ion-item class="movie-info" lines="none">
+			<ion-icon name="people" slot="start"></ion-icon>
+			<h2> Author: {{ quote.author }}</h2>
+		</ion-item>
+		<ion-item class="movie-info" lines="none">
+			<ion-icon name="film" slot="start"></ion-icon>
+			<h2>Serie: {{ quote.series }}</h2>
+		</ion-item>
 	</ion-card>
 </ion-content>
