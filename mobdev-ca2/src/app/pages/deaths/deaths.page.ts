@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { ApiService } from './../../services/api.service';
+import { Observable } from 'rxjs';
+import { ApiService } from '../../services/api.service';
 
 @Component({
     selector: 'app-deaths',
@@ -9,13 +9,23 @@ import { ApiService } from './../../services/api.service';
     styleUrls: ['./deaths.page.scss'],
 })
 export class DeathsPage implements OnInit {
-    death: any;
 
-    constructor(private router: Router, private api: ApiService) { }
+    deaths: Observable<any>;
+    search: null;
+
+    constructor(private api: ApiService, private router: Router) { }
 
     ngOnInit() {
-        this.death = this.api.getDeaths();
+        this.deaths = this.api.getDeaths();
+        this.deaths.subscribe(data => {
+            console.log('my data: ', data);
+        });
+
     }
+    onSearchChange(event) {
 
+        this.search = event.target.value;;
+        this.deaths = this.api.searchDeath(this.search);
 
+    }
 }

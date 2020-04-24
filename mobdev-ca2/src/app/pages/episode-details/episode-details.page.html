@@ -3,7 +3,7 @@
 		<ion-buttons slot="start">
 			<ion-back-button defaulthref="/tabs/characters"></ion-back-button>
 		</ion-buttons>
-		<ion-title>Episode Details</ion-title>
+		<ion-title>{{ episode?.title }}</ion-title>
 	</ion-toolbar>
 </ion-header>
 
@@ -13,7 +13,7 @@
 
 		<!--  title: information -->
 		<ion-card-content>
-			<h2> Name:{{ episode.title }} </h2>
+        <h2>Name:{{ episode.title }} </h2>
 		</ion-card-content>
 
 		<ion-card-content>
