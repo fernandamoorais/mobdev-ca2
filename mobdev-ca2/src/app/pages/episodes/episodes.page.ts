@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ApiService } from '../../services/api.service';
-import { HttpClient } from '@angular/common/http';
-
+import { HttpClientModule } from '@angular/common/http';
+import { IonInfiniteScroll } from '@ionic/angular';
 
 
 @Component({
@@ -14,17 +14,26 @@ import { HttpClient } from '@angular/common/http';
 
 export class EpisodesPage implements OnInit {
 
-    episodes: Observable<any>;
+    episodes: any;
     episodeId = null;
-    constructor(private router: Router, private api: ApiService) { }
+    page = 0;
+    
+    
+    constructor(private router: Router, private api: ApiService) {
+      
+    }
 
     ngOnInit() {
         this.episodes = this.api.getEpisodes();
     }
+
     openDetails(episode) {
 
         let episodeId = episode.episode_id;
         this.router.navigateByUrl(`/tabs/episodes/${episodeId}`)
         console.log(episodeId);
     }
+
+
+
 }

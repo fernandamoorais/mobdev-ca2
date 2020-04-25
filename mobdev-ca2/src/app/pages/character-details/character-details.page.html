@@ -3,8 +3,16 @@
 		<ion-buttons slot="start">
 			<ion-back-button defaulthref="/tabs/characters"></ion-back-button>
 		</ion-buttons>
-		<ion-title>Character Details</ion-title>
-	</ion-toolbar>
+		<ion-title>{{ character?.name }}</ion-title>
+  <ion-buttons slot="end">
+    <ion-button (click)="dislikeEpisode()" *ngIf="isLike">
+      <ion-icon name="thumbs-up" slot="icon-only"></ion-icon>
+    </ion-button>
+    <ion-button (click)="likeEpisode()" *ngIf="!isLike">
+      <ion-icon name="thumbs-up-outline" slot="icon-only"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
@@ -13,22 +21,18 @@
 
          <!--  title: information -->
 		<ion-card-content>
-			<h2> Name: {{ character.name }} </h2>
+			Name: {{ character.name }} 
 		</ion-card-content>
 
 		<ion-card-content>
-			<h2> Nickname: {{ character.nickname }} </h2>
+		 Nickname: {{ character.nickname }} 
 		</ion-card-content>
 
 		<ion-card-content>
-			<h2>Birthday: {{ character.birthday }} </h2>
+			Birthday: {{ character.birthday }} 
 		</ion-card-content>
 
-        <!-- This gona display the pic of the Character -->
-		<ion-card-content>
-			<img src="{{ character.img }}">
-		</ion-card-content>
-	</ion-card>
+        </ion-card>
 </ion-content>
 
 </ion-content>
