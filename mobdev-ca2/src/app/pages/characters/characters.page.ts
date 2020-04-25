@@ -13,18 +13,21 @@ export class CharactersPage implements OnInit {
     characters: any;
     offset: any;
     page=0;
+    charId = null;
+
     
 
     constructor(private router: Router, private api: ApiService) {
-        this.loadCharacters();
+        
     }
 
     ngOnInit() {
 
-        this.characters = this.api.getCharacters(this.offset);
-        this.characters.subscribe(data => {
-            console.log('my data: ', data);
-        });
+        this.loadCharacters();
+        //characters = this.api.getCharacters(this.offset);
+     //   this.characters.subscribe(data => {
+         //console.log('my data: ', data);
+     // });
     }
 
     openDetails(character) {
@@ -39,12 +42,12 @@ export class CharactersPage implements OnInit {
             if(event){
                 event.target.complete();
             }
-        });
+        })
           
     }
     loadMore(event) {
       
-        this.offset+=10;
+        this.offset +=10;
         this.loadCharacters(event);
         
     }
