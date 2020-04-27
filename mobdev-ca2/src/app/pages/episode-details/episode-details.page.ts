@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { ApiService } from '../../services/api.service';
 import { LikeService } from 'src/app/services/like.service';
 
-
+//using the same logic as Character.details.ts
 
 @Component({
     selector: 'app-episode-details',
@@ -15,34 +15,33 @@ export class EpisodeDetailsPage implements OnInit {
 
     episode: any;
     episodeId = null;
-    Like = false;
+    isFavourite = false;
 
 
     constructor(private activatedRoute: ActivatedRoute, private api: ApiService, private likeServices: LikeService) { }
-    
+
     ngOnInit() {
-         this.episodeId = this.activatedRoute.snapshot.paramMap.get('id');
- 
-      this.api.getEpisode(this.episodeId).subscribe(res => {
-      this.episode = res[0];
-      console.log(JSON.stringify(this.episode.episode_id));
-       });
+        this.episodeId = this.activatedRoute.snapshot.paramMap.get('id');
 
-       this.likeServices.Like(this.episodeId).then(isLik => {
-      this.Like = isLik;
-    });
-  }
+        this.api.getEpisode(this.episodeId).subscribe(res => {
+            this.episode = res[0];
+            console.log(JSON.stringify(this.episode.episode_id));
+        });
 
-  likeEpisode() {
-    this.likeServices.likeEpisode(this.episodeId).then(() => {
-      this.Like = true;
-    });
-  }
- 
-  dislikeEpisode() {
-    this.likeServices.dislikeEpisode(this.episodeId).then(() => {
-      this.Like = false;
-    });
-  }
+        this.likeServices.isFav(this.episodeId).then(isFav => {
+            this.isFavourite = isFav;
+        });
+    }
+    favouriteEp() {
+        this.likeServices.favouriteEp(this.episodeId).then(() => {
+            this.isFavourite = true;
+        });
+    }
+
+    unfavouriteEp() {
+        this.likeServices.unfavouriteEp(this.episodeId).then(() => {
+            this.isFavourite = false;
+        });
+    }
 
 }
