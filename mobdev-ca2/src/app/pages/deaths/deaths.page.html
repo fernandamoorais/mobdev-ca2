@@ -1,23 +1,24 @@
-<ion-header >
+<ion-header>
 	<ion-toolbar color="primary">
 		<ion-title>Deaths</ion-title>
 	</ion-toolbar>
 </ion-header>
-<ion-content >
+<ion-content>
 	<ion-list>
-<ion-card class='styledeath' >
-<p > Type the name of the Character to know how many people they kill!</p>
-</ion-card>
+		<ion-card class='styledeath'>
+			<p> Type the name of the Character to know how many people they kill!</p>
+		</ion-card>
+		<!--Search using the event created on death.page.ts and applying css style-->
 		<ion-searchbar [(ngModel)]="search" (ionChange)="onSearchChange($event)" class='Sdeath'></ion-searchbar>
 
 		<ion-item button *ngFor="let death of (deaths | async)">
 			<ion-avatar slot="start">
 
 			</ion-avatar>
-
+			<!-- this gonna shows on the search bar-->
 			<ion-label text-wrap>
-			The Character {{ death.name }}
-			killed	{{death.deathCount}} people.
+				The Character {{ death.name }}
+				killed {{death.deathCount}} people.
 			</ion-label>
 		</ion-item>
 	</ion-list>

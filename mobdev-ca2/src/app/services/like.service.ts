@@ -10,7 +10,9 @@ const STORAGE_KEY2 = 'likeEpisodes;'
 export class LikeService {
 
     constructor(private storage: Storage) { }
+//All the code for this service is based on the code shown in Mobile development classes
 
+    //ive decided that for episodes i would call the methods Favorite. and use the star as icon.
     getAllFavouriteEps() {
         return this.storage.get(STORAGE_KEY2);
     }
@@ -41,7 +43,7 @@ export class LikeService {
             }
         });
     }
-    //Same Logic but Know for Like/Dislike for Characters 
+    //Same Logic but Know for Like/Dislike for Characters and using thumbs as icon
 
     getAllLikeCharacters() {
         return this.storage.get(STORAGE_KEY);

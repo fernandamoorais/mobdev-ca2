@@ -14,7 +14,7 @@ export class DeathsPage implements OnInit {
     search: null;
 
     constructor(private api: ApiService, private router: Router) { }
-
+    //get data from API and e executing methods getDeath().
     ngOnInit() {
         this.deaths = this.api.getDeaths();
         this.deaths.subscribe(data => {
@@ -28,4 +28,5 @@ export class DeathsPage implements OnInit {
         this.deaths = this.api.searchDeath(this.search);
 
     }
+    //event to searchBar
 }
