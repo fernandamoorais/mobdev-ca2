@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { ApiService } from '../../services/api.service';
 import { LikeService } from 'src/app/services/like.service';
 
-
+//using the same logic as Character.details.ts
 
 @Component({
     selector: 'app-episode-details',

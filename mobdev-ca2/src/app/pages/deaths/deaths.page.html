@@ -1,14 +1,14 @@
-<ion-header>
+<ion-header >
 	<ion-toolbar color="primary">
 		<ion-title>Deaths</ion-title>
 	</ion-toolbar>
 </ion-header>
-<ion-content class="ion-padding">
+<ion-content >
 	<ion-list>
-<ion-card>
-<p>Type the name of the Character to know how many people they kill!</p>
+<ion-card class='styledeath' >
+<p > Type the name of the Character to know how many people they kill!</p>
 </ion-card>
-		<ion-searchbar [(ngModel)]="search" (ionChange)="onSearchChange($event)"></ion-searchbar>
+		<ion-searchbar [(ngModel)]="search" (ionChange)="onSearchChange($event)" class='Sdeath'></ion-searchbar>
 
 		<ion-item button *ngFor="let death of (deaths | async)">
 			<ion-avatar slot="start">
