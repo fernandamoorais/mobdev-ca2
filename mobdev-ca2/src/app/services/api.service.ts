@@ -12,7 +12,7 @@ export class ApiService {
     constructor(private http: HttpClient) { }
 
     getCharacters(offset) {
-        return this.http.get(`https://www.breakingbadapi.com/api/characters?limit=20&offset=${offset}`)
+        return this.http.get(`https://www.breakingbadapi.com/api/characters?limit=15&offset=${offset}`)
     }
 
     getCharacter(id) {

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { ApiService } from '../../services/api.service';
 import { HttpClientModule } from '@angular/common/http';
 
-
+//using the same logic as Character.ts
 @Component({
     selector: 'app-episodes',
     templateUrl: './episodes.page.html',
