@@ -47,7 +47,7 @@ export class LikeService {
         return this.storage.get(STORAGE_KEY);
     }
 
-    Like(charId) {
+    isLike(charId) {
         return this.getAllLikeCharacters().then(result => {
             return result && result.indexOf(charId) !== -1;
         });

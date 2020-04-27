@@ -1,38 +1,43 @@
 <ion-header>
 	<ion-toolbar color="primary">
+
 		<ion-buttons slot="start">
 			<ion-back-button defaulthref="/tabs/characters"></ion-back-button>
 		</ion-buttons>
+
 		<ion-title>{{ character?.name }}</ion-title>
-  <ion-buttons slot="end">
-    <ion-button (click)="dislikeEpisode()" *ngIf="isLike">
-      <ion-icon name="thumbs-up" slot="icon-only"></ion-icon>
-    </ion-button>
-    <ion-button (click)="likeEpisode()" *ngIf="!isLike">
-      <ion-icon name="thumbs-up-outline" slot="icon-only"></ion-icon>
-    </ion-button>
-  </ion-buttons>
-  </ion-toolbar>
+		<ion-buttons slot="end">
+
+			<ion-button (click)="dislikeCharacters()" *ngIf="isLike">
+				<ion-icon name="thumbs-up" slot="icon-only"></ion-icon>
+			</ion-button>
+
+			<ion-button (click)="likeCharacters()" *ngIf="!isLike">
+				<ion-icon name="thumbs-up-outline" slot="icon-only"></ion-icon>
+			</ion-button>
+
+		</ion-buttons>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
 
 	<ion-card *ngIf="character">
 
-         <!--  title: information -->
+		<!--  title: information -->
 		<ion-card-content>
-			Name: {{ character.name }} 
+			Name: {{ character.name }}
 		</ion-card-content>
 
 		<ion-card-content>
-		 Nickname: {{ character.nickname }} 
+			Nickname: {{ character.nickname }}
 		</ion-card-content>
 
 		<ion-card-content>
-			Birthday: {{ character.birthday }} 
+			Birthday: {{ character.birthday }}
 		</ion-card-content>
 
-        </ion-card>
+	</ion-card>
 </ion-content>
 
 </ion-content>

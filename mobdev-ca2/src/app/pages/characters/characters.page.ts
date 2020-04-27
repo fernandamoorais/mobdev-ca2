@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ApiService } from '../../services/api.service';
+import { LikeService } from 'src/app/services/like.service';
+import { HttpClientModule } from '@angular/common/http';
+import { IonInfiniteScroll } from '@ionic/angular';
 
 @Component({
     selector: 'app-characters',
@@ -12,44 +15,50 @@ export class CharactersPage implements OnInit {
 
     characters: any;
     offset: any;
-    page=0;
     charId = null;
+    maxPage = 50;
+    char = [];
 
-    
 
-    constructor(private router: Router, private api: ApiService) {
-        
-    }
+
+
+    constructor(private router: Router, private api: ApiService) { }
 
     ngOnInit() {
 
         this.loadCharacters();
         //characters = this.api.getCharacters(this.offset);
-     //   this.characters.subscribe(data => {
-         //console.log('my data: ', data);
-     // });
+        //   this.characters.subscribe(data => {
+        //console.log('my data: ', data);
+        // });
     }
 
+
+    loadCharacters(event?) {
+        this.api.getCharacters(this.offset).subscribe(res => {
+            console.log("My Characters info:", res);
+            this.char = this.char.concat(res);
+            if (event) {
+                event.target.complete();
+            }
+        })
+
+    }
+    loadMore(event?) {
+
+        this.offset = this.offset + 20;
+        this.loadCharacters(event);
+
+        if (this.offset > this.maxPage) {
+            event.target.disabled = true;
+        }
+
+    }
     openDetails(character) {
 
         let charId = character.char_id;
         this.router.navigateByUrl(`/tabs/characters/${charId}`);
-
-    }
-    loadCharacters(event?) {
-        this.api.getCharacters(this.offset).subscribe(res=>{
-            this.characters=this.characters.concat(res);
-            if(event){
-                event.target.complete();
-            }
-        })
-          
-    }
-    loadMore(event) {
-      
-        this.offset +=10;
-        this.loadCharacters(event);
-        
+        console.log(charId);
     }
 }
 
