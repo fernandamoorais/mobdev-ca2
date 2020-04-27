@@ -9,8 +9,9 @@ import { ApiService } from '../../services/api.service';
 })
 export class QuoteDetailsPage implements OnInit {
 
-    quote: any;
+   
     quoteID = null;
+    quotes: any;
 
     constructor(private activatedRoute: ActivatedRoute, private api: ApiService) { }
 
@@ -18,7 +19,7 @@ export class QuoteDetailsPage implements OnInit {
 
         this.quoteID = this.activatedRoute.snapshot.paramMap.get('id');
         this.api.getQuote(this.quoteID).subscribe(res => {
-        this.quote = res[0];
+        this.quotes = res[0];
         });
 
 

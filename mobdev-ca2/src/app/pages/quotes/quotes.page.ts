@@ -4,21 +4,43 @@ import { ApiService } from '../../services/api.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-quotes',
-  templateUrl: './quotes.page.html',
-  styleUrls: ['./quotes.page.scss'],
+    selector: 'app-quotes',
+    templateUrl: './quotes.page.html',
+    styleUrls: ['./quotes.page.scss'],
 })
 export class QuotesPage implements OnInit {
 
     quotes: any;
     quoteId: null;
+    author: string = ' ';
 
-  constructor(private api: ApiService, private router: Router) { }
+    constructor(private api: ApiService, private router: Router) { }
 
-   ngOnInit() {
-        this.quotes = this.api.getQuotes();
-        this.quotes.subscribe(data => {
-            console.log('my data', data);
+    ngOnInit() {
+        this.LoadQuotes();
+        //this.quotes = this.api.getQuotes();
+        //this.quotes.subscribe(data => {
+           // console.log('my dta', ata);
+    }
+
+    LoadQuotes() {
+        this.api.getQuotes().subscribe(res => {
+            this.quotes = res;
+        });
+    }
+
+    searchQuote(event) {
+        this.author = event.target.value;
+
+        if (this.author == '') {
+            this.LoadQuotes();
+            return;
+        }
+
+        this.api.getQuote(this.author).subscribe(data => {
+            this.quotes = data;
+        }, res => {
+            this.quotes = [];
         });
     }
 
