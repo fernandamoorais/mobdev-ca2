@@ -13,7 +13,16 @@
   --ion-color-primary-tint: #ddbdc1;
   //changing the colour of  css variables 
    
- 
+ //changinf the colour of Warning to use on tab Death
+
+  /** warning **/
+  --ion-color-warning: #2b2a27;
+  --ion-color-warning-rgb: 255, 196, 9;
+  --ion-color-warning-contrast: #ebe1e1;
+  --ion-color-warning-contrast-rgb: 0, 0, 0;
+  --ion-color-warning-shade: #e0ac08;
+  --ion-color-warning-tint: #ffca22;
+  
   /** secondary **/
   --ion-color-secondary: #3dc2ff;
   --ion-color-secondary-rgb: 61, 194, 255;
@@ -38,13 +47,7 @@
   --ion-color-success-shade: #28ba62;
   --ion-color-success-tint: #42d77d;
 
-  /** warning **/
-  --ion-color-warning: #ffc409;
-  --ion-color-warning-rgb: 255, 196, 9;
-  --ion-color-warning-contrast: #000000;
-  --ion-color-warning-contrast-rgb: 0, 0, 0;
-  --ion-color-warning-shade: #e0ac08;
-  --ion-color-warning-tint: #ffca22;
+
 
   /** danger **/
   --ion-color-danger: #eb445a;
