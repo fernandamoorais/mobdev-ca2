@@ -24,7 +24,7 @@ export class QuotesPage implements OnInit {
     }
 
     LoadQuotes() {
-        this.api.getQuote(this.author).subscribe(res => {
+        this.api.getQuotes().subscribe(res => {
             this.quotes = res;
         });
     }
@@ -40,6 +40,7 @@ export class QuotesPage implements OnInit {
         this.api.getQuote(this.author).subscribe(data => {
             this.quotes = data;
         }, res => {
+            //
             this.quotes = [];
         });
     }

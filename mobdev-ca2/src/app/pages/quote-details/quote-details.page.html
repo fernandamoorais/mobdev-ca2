@@ -6,18 +6,22 @@
 		<ion-title>Details of Quotes</ion-title>
 	</ion-toolbar>
 </ion-header>
+
 <ion-content padding>
 
 	<ion-card *ngIf="quote">
-    
+
 		<ion-card-content>
 			Author: {{ quote.author }}
 		</ion-card-content>
-		
-        <ion-card-content>
-			Author: <i>{{ quote.quote }}</i>
-		</ion-card-content>
-			<h2>Serie: {{ quote.series }}</h2>
+
+		<ion-item>
+        	Author: <i>{{ quote.quote }}</i>
 		</ion-item>
+
+		<ion-item>
+			Serie: {{ quote.series }}
+		</ion-item>
+        
 	</ion-card>
 </ion-content>
