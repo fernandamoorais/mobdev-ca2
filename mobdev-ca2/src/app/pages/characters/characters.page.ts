@@ -15,7 +15,7 @@ import { IonInfiniteScroll } from '@ionic/angular';
 export class CharactersPage implements OnInit {
 
     characters: any;
-    offset: any;
+    offset = 0;
     //collection of character on the one page
     charId = null;
     maxPage = 50;
