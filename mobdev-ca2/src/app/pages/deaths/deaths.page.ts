@@ -29,4 +29,5 @@ export class DeathsPage implements OnInit {
 
     }
     //event to searchBar
+    //its gonna search by name 
 }

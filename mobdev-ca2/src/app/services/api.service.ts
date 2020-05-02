@@ -32,11 +32,12 @@ export class ApiService {
    
     searchQuote(author) {
       return this.http.get(`https://www.breakingbadapi.com/api/quote?author=${encodeURI(author)}`);
-    }
+    }    
     
-    
+    //
      getQuote(id) {
         return this.http.get(`https://breakingbadapi.com/api/quotes/${id}`);
+        //using Id as paramether to get ecah quote of the charecters 
 
     }
     getDeaths() {
@@ -45,5 +46,6 @@ export class ApiService {
     searchDeath(search) {
         return this.http.get(`https://www.breakingbadapi.com/api/death-count?name=${encodeURI(search)}`)
     }
+    //this service will get the total death by the name 
 
 }

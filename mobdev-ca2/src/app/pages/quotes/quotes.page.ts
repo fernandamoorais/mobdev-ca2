@@ -24,7 +24,7 @@ export class QuotesPage implements OnInit {
     }
 
     LoadQuotes() {
-        this.api.getQuotes().subscribe(res => {
+        this.api.getQuote(this.author).subscribe(res => {
             this.quotes = res;
         });
     }
