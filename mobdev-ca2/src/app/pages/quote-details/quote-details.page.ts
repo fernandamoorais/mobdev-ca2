@@ -11,7 +11,7 @@ export class QuoteDetailsPage implements OnInit {
 
    
     quoteID = null;
-    quotes: any;
+    quote: any;
 
     constructor(private activatedRoute: ActivatedRoute, private api: ApiService) { }
 
@@ -19,7 +19,7 @@ export class QuoteDetailsPage implements OnInit {
 
         this.quoteID = this.activatedRoute.snapshot.paramMap.get('id');
         this.api.getQuote(this.quoteID).subscribe(res => {
-        this.quotes = res[0];
+        this.quote = res[0];
         });
 
 

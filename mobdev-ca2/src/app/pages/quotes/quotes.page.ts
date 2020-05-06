@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ApiService } from '../../services/api.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
     selector: 'app-quotes',
@@ -12,7 +14,7 @@ export class QuotesPage implements OnInit {
 
     quotes: any;
     quoteId: null;
-    author: string = ' ';
+    author = ' ';
 
     constructor(private api: ApiService, private router: Router) { }
 
@@ -29,7 +31,8 @@ export class QuotesPage implements OnInit {
         });
     }
 
-    searchQuote(event) {
+    searchBarQuote(event) {
+
         this.author = event.target.value;
 
         if (this.author == '') {
@@ -37,7 +40,7 @@ export class QuotesPage implements OnInit {
             return;
         }
 
-        this.api.getQuote(this.author).subscribe(data => {
+        this.api.searchQuote(this.author).subscribe(data => {
             this.quotes = data;
         }, res => {
             //
