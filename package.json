@@ -54,10 +54,10 @@
         "protractor": "~5.4.0",
         "ts-node": "~7.0.0",
         "tslint": "~5.15.0",
-        "typescript": "~3.4.3"
-    },
-    "devDependencies": {
+        "typescript": "~3.4.3",
         "@angular/cli": "8.3.26"
     },
+    "devDependencies": {
+           },
     "description": "An Ionic project"
 }
